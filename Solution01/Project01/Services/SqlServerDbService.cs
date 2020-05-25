@@ -18,8 +18,8 @@ namespace Project01.Services
 {
     public class SqlServerDbService : IDbService
     {
-        private readonly UniversityContext iContext;
-        public SqlServerDbService(UniversityContext icontext)
+        private readonly universityContext iContext;
+        public SqlServerDbService(universityContext icontext)
         {
             iContext = icontext;
         }
