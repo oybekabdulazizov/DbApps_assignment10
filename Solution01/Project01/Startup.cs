@@ -6,10 +6,14 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Project01.Models;
+using Project01.Services;
 
 namespace Project01
 {
@@ -25,6 +29,11 @@ namespace Project01
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<MyDbContext>(options =>
+            {
+                options.UseSqlServer(Configuration["UniversityDb"]);
+            });
+            services.AddTransient<IDbService, SqlServerDbService>();
             services.AddControllers();
         }
 
