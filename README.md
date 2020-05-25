@@ -1,2 +1,2 @@
 # DbApps_assignment10
-Endoints using Entity Framework Core. 
+Endoints (GET, POST, PUT, DELETE) using Entity Framework Core. 
